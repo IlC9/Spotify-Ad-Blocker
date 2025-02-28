@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Reflection;
@@ -251,11 +252,20 @@ namespace EZBlocker
 
         private string GetSpotifyPath()
         {
-            foreach (Process p in Process.GetProcessesByName("spotify"))
+            List<string> possibleProcessNames = new List<string>
             {
-                if (p.MainWindowTitle.Length > 1)
+                "spotify",
+                "Spotify"
+            };
+
+            foreach (string processName in possibleProcessNames)
+            {
+                foreach (Process p in Process.GetProcessesByName(processName))
                 {
-                    return p.MainModule.FileName;
+                    if (p.MainWindowTitle.Length > 1)
+                    {
+                        return p.MainModule.FileName;
+                    }
                 }
             }
             return "";
