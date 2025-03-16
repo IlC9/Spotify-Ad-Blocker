@@ -72,10 +72,10 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '6.0.x'
-    - name: Install dependencies
-      run: dotnet restore EZBlocker/EZBlocker.sln
+    #- name: Install dependencies
+    #  run: dotnet restore EZBlocker/EZBlocker.sln
     - name: Build
-      run: dotnet build EZBlocker/EZBlocker.sln --no-restore
+      run: dotnet build EZBlocker/EZBlocker.sln
     - name: Show files
       run: dir /s
        
