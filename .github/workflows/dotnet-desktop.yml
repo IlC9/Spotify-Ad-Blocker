@@ -75,7 +75,7 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build EZBlocker/EZBlocker.sln --no-restore
     - name: Show files
       run: dir
        
