@@ -92,7 +92,9 @@ jobs:
         Configuration: ${{ matrix.configuration }}
 
     - name: Show files
-      run: dir . /s
+      run: | 
+          Get-ChildItem -Path . -Recurse
+      shell: pwsh
 
 
     # Upload the MSIX package: https://github.com/marketplace/actions/upload-a-build-artifact
